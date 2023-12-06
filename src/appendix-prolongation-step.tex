@@ -1,6 +1,6 @@
 \section{A step of adaptive prolongation}\label{sec:app:prolongation-step}
 
-Let us denote \( \Psi_K, \dots, \Psi_0 \) the embedding sequence produced by the adaptive prologation schema. A description of a single prolongation step from \( \Psi_{i + 1} \) to \( \Psi_i \) follows and is described in further detail in Algorithm \ref{fig:adaptive-prolongation}.
+The sequence \( G_0, G_1, G_2, \dots, G_L \) as defined in Section \ref{sec:introduction} is generated in HARP consecutively. Let \( \varphi_i \) denote this mapping \( G_i = \varphi_i \left( G_{i - 1} \right) \). Following \cite{schulz_mining_2019}, we restrict the definition of such a coarsening \( \varphi_i \) to only consist of a series of edge contractions \( \mathcal{C} \subseteq E \left( G \right) \). Let us denote \( \Psi_K, \dots, \Psi_0 \) the embedding sequence produced by the adaptive prologation schema. A description of a single prolongation step from \( \Psi_{i + 1} \) to \( \Psi_i \) follows and is described in further detail in Algorithm \ref{fig:adaptive-prolongation}.
 
 \begin{algorithm*}
   \caption{Adaptive prolongation}
@@ -51,7 +51,7 @@ Let us denote \( \Psi_K, \dots, \Psi_0 \) the embedding sequence produced by the
   \end{algorithmic}
 \end{algorithm*}
 
-The procedure keeps track of all the edge contractions that were made in the dataset augmentation part of the algorithm and gradually reverses them. To this end, apart from the embedding \( \Psi_i \), the set of all contractions yet to be reversed as of step \( i \) is kept as \( \mathcal{C}_L^{(i)}, \dots, \mathcal{C}_0^{(i)} \), with the initial values \( \mathcal{C}_j^{(K)} \) corresponding to the underlying coarsening \( \varphi_j \) as defined in Section~\ref{sec:harp}.
+The procedure keeps track of all the edge contractions that were made in the dataset augmentation part of the algorithm and gradually reverses them. To this end, apart from the embedding \( \Psi_i \), the set of all contractions yet to be reversed as of step \( i \) is kept as \( \mathcal{C}_L^{(i)}, \dots, \mathcal{C}_0^{(i)} \), with the initial values \( \mathcal{C}_j^{(K)} \) corresponding to the underlying coarsening \( \varphi_j \).
 
 In each prolongation step, the embedding \( \Psi_{i + 1} \) is prolonged to \( \Psi_i \) by selecting a set of \( n_p \) contractions \( \mathcal{C}_\mathrm{prolong} \) and undoing them by copying and reusing the embedding of the node resulting from the contraction to both of the contracted nodes. To obtain \( \mathcal{C}_\mathrm{prolong} \), nodes of \( G_0 \) are first ordered in such a way that corresponds to the usefulness of prolonging them. Subsequently, the set \( \mathcal{C}_\mathrm{prolong} \) is selected from \( \mathcal{C}_L^{(i + 1)}, \dots, \mathcal{C}_0^{(i + 1)} \) by selecting contractions affecting nodes in the aforementioned order, until \( n_p \) contractions are selected. If multiple contractions affecting the same node are available in the sequence \( \mathcal{C}_L^{(i + 1)}, \dots, \mathcal{C}_0^{(i + 1)} \), one is selected from \( \mathcal{C}_j^{(i + 1)} \) corresponding to the coarsest-level coarsening. The sequence \( \mathcal{C}_L^{(i)}, \dots, \mathcal{C}_0^{(i)} \) is produced from \( \mathcal{C}_L^{(i + 1)}, \dots, \mathcal{C}_0^{(i + 1)} \) by removing all of the edges contained in \( \mathcal{C}_\mathrm{prolong} \).
 
