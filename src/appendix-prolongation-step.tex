@@ -1,6 +1,6 @@
-\section{A step of adaptive prolongation}\label{sec:app:prolongation-step}
+\section{One step of adaptive prolongation}\label{sec:app:prolongation-step}
 
-The sequence \( G_0, G_1, G_2, \dots, G_L \) as defined in Section \ref{sec:introduction} is generated in HARP consecutively. Let \( \varphi_i \) denote this mapping \( G_i = \varphi_i \left( G_{i - 1} \right) \). Following \cite{schulz_mining_2019}, we restrict the definition of such a coarsening \( \varphi_i \) to only consist of a series of edge contractions \( \mathcal{C} \subseteq E \left( G \right) \). Let us denote \( \Psi_K, \dots, \Psi_0 \) the embedding sequence produced by the adaptive prologation schema. A description of a single prolongation step from \( \Psi_{i + 1} \) to \( \Psi_i \) follows and is described in further detail in Algorithm \ref{fig:adaptive-prolongation}.
+The sequence \( G_0, G_1, G_2, \dots, G_L \) as defined in Section \ref{sec:introduction} is generated in HARP consecutively. Let \( \varphi_i \) denote the mapping \( G_i = \varphi_i \left( G_{i - 1} \right) \). Following \cite{schulz_mining_2019}, we restrict the definition of such a coarsening \( \varphi_i \) to only consist of a series of edge contractions \( \mathcal{C} \subseteq E \left( G \right) \). Let us denote \( \Psi_K, \dots, \Psi_0 \) the embedding sequence produced by the adaptive prologation schema. A description of a single prolongation step from \( \Psi_{i + 1} \) to \( \Psi_i \) follows and is described in further detail in Algorithm \ref{fig:adaptive-prolongation}.
 
 \begin{algorithm*}
   \caption{Adaptive prolongation}
@@ -10,7 +10,7 @@ The sequence \( G_0, G_1, G_2, \dots, G_L \) as defined in Section \ref{sec:intr
     \Require $ \bm{y}_\mathrm{train} $ \Comment Training labels
     \Require $ n_p $ \Comment The number of nodes to prolong
     \Require $ \Psi_{i + 1} $ \Comment The previous embedding
-    \Require $ \mathcal{C}_L^{(i + 1)}, \dots, \mathcal{C}_0^{(i + 1)} $ \Comment A list of all the contractions yet to be reversed
+    \Require $ \mathcal{C}_L^{(i + 1)}, \dots, \mathcal{C}_0^{(i + 1)} $ \Comment A list of all the contraction sets yet to be reversed
     \Ensure $ \Psi_i $ \Comment The next embedding
     \Ensure $ \mathcal{C}_L^{(i)}, \dots, \mathcal{C}_0^{(i)} $ \Comment Updated contraction list without the prolonged contractions
     \Statex
