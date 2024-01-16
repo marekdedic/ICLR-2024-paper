@@ -25,9 +25,17 @@ Please address my concerns in the **Weakness** part.
 ### Rating:
 
 Clear, Correct, and Reproducible (CCR): a submission which meets the reviewing criteria
+
 ### Confidence:
 
 3: The reviewer is fairly confident that the evaluation is correct
+
+
+
+## Response
+
+1. Re presentation - could you be more concrete?
+2. Will improve
 
 
 
@@ -77,6 +85,12 @@ Great Start (GS): a submission which meets some of the reviewing criteria but ha
 3: The reviewer is fairly confident that the evaluation is correct
 
 
+## Response
+
+1. Yes, for an embedding at a level $ k $, we still need embeddings at levels $ k + 1, \dots, L $, but those are simpler ($ L $ is the simplest), and we don't need to train on levels $ k-1, \dots, 0 $, which are the most complex and take the longest to train
+2. Essentially, yes - if I coarsen the graph by 40% and predict, I will stay withing 10% of the performance of the original graph - last paragraph of section 3 lists more details about these results.
+
+
 
 
 
@@ -122,3 +136,37 @@ Clear, Correct, and Reproducible (CCR): a submission which meets the reviewing c
 ### Confidence:
 
 3: The reviewer is fairly confident that the evaluation is correct
+
+
+## Response
+
+**Weaknesses:**
+
+1. Will improve, but limited by page count.
+2. In HARP, there are $ L $ coarsening steps producing $ L $ graphs with different coarseness. These are then used (in reverse order) in the prolongation, which therefore also has $ L $ steps. In our method, the prolongation has many more steps $ K $ than the coarsening and produces its own sequence of $ L $ graphs and embeddings (it still uses the original $ K $ graphs from the coarsening stage, but only indirectly). Do you have any suggestion for how to explain this more clearly in the paper?
+
+**Suggestions:**
+
+1. Will improve
+2. We have some limited insight that didn't fit the paper, namely we tried to look at the graph homophily, accuracy and assortativity and found them to be highly correlated with performance accross the prolongation procedure. This suggests the explanation of the graphs being heterophilic when very coarse (as could be expected), then reaching a point where the global structure of the graph is in place and is then only refined in a local sense.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Changes to be made
+
+- [x] Improve abstract
+- [ ] Better explanation of sequence complexity
+- [ ] Better explanation of decoupling
+- [ ] Simple definition of coarsening in intro?
+- [ ] Better explain why we care about coarsening - motivation behind even studying this
