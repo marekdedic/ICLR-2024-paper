@@ -166,7 +166,7 @@ Clear, Correct, and Reproducible (CCR): a submission which meets the reviewing c
 # Changes to be made
 
 - [x] Improve abstract
-- [ ] Better explanation of sequence complexity
-- [ ] Better explanation of decoupling
 - [ ] Simple definition of coarsening in intro?
-- [ ] Better explain why we care about coarsening - motivation behind even studying this
+- [x] Better explanation of sequence complexity
+- [ ] Better explanation of decoupling
+- [x] Better explain why we care about coarsening - motivation behind even studying this
