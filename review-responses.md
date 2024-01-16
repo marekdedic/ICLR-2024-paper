@@ -34,8 +34,7 @@ Clear, Correct, and Reproducible (CCR): a submission which meets the reviewing c
 
 ## Response
 
-1. Re presentation - could you be more concrete?
-2. Will improve
+Thank you for your review, summary and suggestions. We agree that the motivation for studying the problem could have been explained more clearly and have added a revision which hopefully addresses this issue by expanding the introduction. We would like to further improve the presentation of the whole paper, as you suggested - do you have some particular examples of which parts were hard to understand and could use an improvement or which concepts should be introduced in a different way? Thank you.
 
 
 
@@ -87,8 +86,12 @@ Great Start (GS): a submission which meets some of the reviewing criteria but ha
 
 ## Response
 
-1. Yes, for an embedding at a level $ k $, we still need embeddings at levels $ k + 1, \dots, L $, but those are simpler ($ L $ is the simplest), and we don't need to train on levels $ k-1, \dots, 0 $, which are the most complex and take the longest to train
-2. Essentially, yes - if I coarsen the graph by 40% and predict, I will stay withing 10% of the performance of the original graph - last paragraph of section 3 lists more details about these results.
+Thank you for your review, summary and suggestions. Regarding the points that you mention in the "Weakness" section:
+
+1. Yes, for an embedding at a level $ k $, we still need embeddings at levels $ k + 1, \dots, L $, but those are simpler ($ L $ is the simplest), and we don't need to train on levels $ k-1, \dots, 0 $, which are the most complex and take the longest to train. We have added a revision which hopefully explains this more clearly.
+2. Essentially, yes - if you coarsen the graph by 40% and predict, you will stay within 10% of the performance of the prediction on the original graph - the last paragraph of section 3 gives more details about these results. We have clarified that the comparison is to the full graph in the current revision.
+
+Additionally, we have expanded the introduction to better explain our primary motivation behind the framework and its use, thank you for the suggestion.
 
 
 
@@ -140,15 +143,15 @@ Clear, Correct, and Reproducible (CCR): a submission which meets the reviewing c
 
 ## Response
 
-**Weaknesses:**
+Thank you for your review, summary and suggestions. Regarding the points that you mention in the "Weakness" section:
 
-1. Will improve, but limited by page count.
-2. In HARP, there are $ L $ coarsening steps producing $ L $ graphs with different coarseness. These are then used (in reverse order) in the prolongation, which therefore also has $ L $ steps. In our method, the prolongation has many more steps $ K $ than the coarsening and produces its own sequence of $ L $ graphs and embeddings (it still uses the original $ K $ graphs from the coarsening stage, but only indirectly). Do you have any suggestion for how to explain this more clearly in the paper?
+1. We agree that the abstract could have been more descriptive. We have added a revision which rewords the abstract to hopefully address this issue, however, we are quite limited in its possible length.
+2. In HARP, there are $ L $ coarsening steps producing $ L $ graphs with different coarseness. These are then used (in reverse order) in the prolongation, which therefore also has $ L $ steps. In contrast, in our method, the prolongation has many more steps $ K $ than the coarsening and produces its own sequence of $ K $ graphs and embeddings (it still uses the original $ L $ graphs from the coarsening stage, but only indirectly). Currently, this is described in the latter part of section 2. Do you have any suggestion for how to explain this more clearly in the paper?
 
-**Suggestions:**
+Regarding the suggested changes:
 
-1. Will improve
-2. We have some limited insight that didn't fit the paper, namely we tried to look at the graph homophily, accuracy and assortativity and found them to be highly correlated with performance accross the prolongation procedure. This suggests the explanation of the graphs being heterophilic when very coarse (as could be expected), then reaching a point where the global structure of the graph is in place and is then only refined in a local sense.
+1. Thank you for the suggestion, we have added it to the introduction.
+2. We have some limited insight that didn't fit the paper, namely we tried to look at the graph homophily, accuracy and assortativity and found them to be highly correlated with performance across the prolongation procedure. This suggests the explanation of the graphs being heterophilic when very coarse (as could be expected), then reaching a point where the global structure of the graph is in place and is then only refined in a local sense. Unfortunately, a proper explanation for this experiment is too long and we couldn't find a way to include it in such a short paper.
 
 
 
