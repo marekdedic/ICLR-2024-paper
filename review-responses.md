@@ -155,6 +155,13 @@ Regarding the suggested changes:
 
 
 
+## Reviewer response
+
+> Do you have any suggestion for how to explain this more clearly in the paper?
+
+The confusion stems from this: There are $ L $ graphs in the HARP sequence and $ K $ steps in your method which is independent $ L $ of but still uses the $ L $ graphs in the sequence. If $ K $ is always greater than $ L $ does it not imply some dependence? What exactly do you mean by "decoupling"?
+
+
 
 
 
