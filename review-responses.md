@@ -162,6 +162,10 @@ Regarding the suggested changes:
 The confusion stems from this: There are $ L $ graphs in the HARP sequence and $ K $ steps in your method which is independent $ L $ of but still uses the $ L $ graphs in the sequence. If $ K $ is always greater than $ L $ does it not imply some dependence? What exactly do you mean by "decoupling"?
 
 
+## Response
+
+Thank you for the response. We have updated the paper to remove the confusing term of decoupling, preferring to describe how each of the $ K $ prolongation steps can use any of the $ L $ graphs pre-computed in the coarsening stage. As a side note, generally, the value of $ K $ really is independent of $ L $ (including the possibility of $ K \leq L $, which wouldn't probably be useful, but is theoretically possible), but it is true that the prolongation procedure does depend on the graph generated in the coarsening stage, which we believe is now more accurately described in the text.
+
 
 
 
